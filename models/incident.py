@@ -1,10 +1,11 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Enum
+# Updated: CrimeWatch CLI - Database Models
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Enum as SQLEnum
 from sqlalchemy.orm import relationship
 from datetime import datetime
-import enum
+from enum import Enum
 from database.connection import Base
 
-class CrimeType(enum.Enum):
+class CrimeType(Enum):
     THEFT = "theft"
     ASSAULT = "assault"
     VANDALISM = "vandalism"
@@ -16,7 +17,7 @@ class Incident(Base):
     __tablename__ = "incidents"
 
     id = Column(Integer, primary_key=True)
-    type = Column(Enum(CrimeType), nullable=False)
+    type = Column(SQLEnum(CrimeType), nullable=False)
     date = Column(DateTime, nullable=False, default=datetime.now)
     description = Column(String, nullable=False)
     location_id = Column(Integer, ForeignKey("locations.id"), nullable=False)

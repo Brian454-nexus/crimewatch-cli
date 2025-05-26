@@ -1,5 +1,6 @@
+# Updated: CrimeWatch CLI - Main Application Entry Point
 from database.connection import engine, Base
-from cli.menu import main
+from cli.menu import main_menu
 
 def init_db():
     """Initialize the database with all tables."""
@@ -7,4 +8,4 @@ def init_db():
 
 if __name__ == "__main__":
     init_db()
-    main() 
+    main_menu() 

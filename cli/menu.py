@@ -1,3 +1,4 @@
+# Updated: CrimeWatch CLI - Menu Interface
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.table import Table
@@ -7,6 +8,7 @@ from colorama import init, Fore, Style
 from datetime import datetime
 from tabulate import tabulate
 from sqlalchemy import func, or_
+import time
 
 # Local imports
 from models.incident import Incident, CrimeType
