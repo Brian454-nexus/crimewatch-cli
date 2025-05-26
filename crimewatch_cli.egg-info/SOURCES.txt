@@ -1,0 +1,15 @@
+README.md
+setup.py
+cli/__init__.py
+cli/menu.py
+crimewatch_cli.egg-info/PKG-INFO
+crimewatch_cli.egg-info/SOURCES.txt
+crimewatch_cli.egg-info/dependency_links.txt
+crimewatch_cli.egg-info/requires.txt
+crimewatch_cli.egg-info/top_level.txt
+database/__init__.py
+database/connection.py
+models/__init__.py
+models/incident.py
+models/location.py
+models/person.py

@@ -1,0 +1,6 @@
+sqlalchemy
+tabulate
+colorama
+rich
+pyfiglet
+python-dateutil
