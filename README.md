@@ -1,22 +1,43 @@
-# 🕵️ CrimeWatch CLI
+# CrimeWatch CLI
 
-A command-line tool for tracking and analyzing local crime reports. Built with Python, SQLAlchemy, and a beautiful CLI interface.
+A command-line interface application for reporting and tracking local crime incidents. Built with Python, SQLAlchemy ORM, and Rich CLI framework.
 
 ## Features
 
-- Add and manage crime reports
-- Track victims and witnesses
-- Filter and search incidents
-- Generate crime analysis reports
-- Export data to CSV/JSON
-- Beautiful CLI interface with colors and tables
+- 📝 Report new crime incidents with detailed information
+- 👥 Track victims and witnesses
+- 📍 Location-based incident tracking
+- 🔍 Search and filter incidents
+- 📊 View incident statistics
+- 🎨 Rich, colorful CLI interface
+- 💾 SQLite database with SQLAlchemy ORM
+- 🔒 Data validation and error handling
+
+## Project Structure
+
+```
+crimewatch-cli/
+├── cli/                    # CLI interface components
+│   ├── menu.py            # Main menu and navigation
+│   └── display.py         # Display formatting utilities
+├── models/                 # Database models
+│   └── incident.py        # Incident, Location, and Person models
+├── database/              # Database configuration
+│   └── connection.py      # Database connection and setup
+├── helpers/               # Utility functions
+│   └── validators.py      # Input validation utilities
+├── main.py               # Application entry point
+├── setup.py              # Package setup configuration
+├── Pipfile              # Pipenv dependencies
+└── README.md            # Project documentation
+```
 
 ## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/crimewatch-cli.git
+git clone https://github.com/Brian454-nexus/crimewatch-cli.git
 cd crimewatch-cli
 ```
 
@@ -34,59 +55,107 @@ pipenv shell
 
 ## Usage
 
-Run the application:
+1. Start the application:
 
 ```bash
 python main.py
 ```
 
-### Main Menu Options
+2. Follow the interactive menu to:
+   - Report new incidents
+   - View incident reports
+   - Search and filter incidents
+   - View statistics
+   - Exit the application
 
-1. Add New Crime Report
-2. List All Incidents
-3. Filter Incidents
-4. View Detailed Report
-5. Add Victim/Witness
-6. Update/Delete Report
-7. Analyze Crime Data
-8. Export Reports
-9. Exit
+## Features in Detail
 
-## Project Structure
+### Incident Reporting
 
+- Report various types of crimes (theft, assault, vandalism, etc.)
+- Add detailed location information
+- Record victim and witness details
+- Add incident descriptions and timestamps
+
+### Search and Filter
+
+- Search by incident type
+- Filter by date range
+- Search by location
+- View detailed incident reports
+
+### Statistics
+
+- View incident counts by type
+- Track incidents by location
+- Monitor incident trends
+
+## Database Schema
+
+The application uses SQLAlchemy ORM with the following models:
+
+### Incident
+
+- ID (Primary Key)
+- Type (Enum: theft, assault, vandalism, etc.)
+- Date
+- Description
+- Location (Foreign Key)
+
+### Location
+
+- ID (Primary Key)
+- Street/Address
+- Area/Neighborhood
+- Incidents (Relationship)
+
+### Person
+
+- ID (Primary Key)
+- Name
+- Type (Enum: victim, witness)
+- Contact
+- Incident (Foreign Key)
+
+## Development
+
+### Prerequisites
+
+- Python 3.8+
+- Pipenv
+- SQLite3
+
+### Dependencies
+
+- SQLAlchemy
+- Rich
+- Tabulate
+- Click
+
+### Running Tests
+
+```bash
+pipenv run pytest
 ```
-crimewatch-cli/
-│
-├── main.py                 # Entry point
-├── Pipfile / Pipfile.lock  # Environment files
-├── cli/
-│   └── menu.py            # Main CLI interface logic
-│
-├── models/
-│   └── incident.py        # Incident model
-│   └── person.py          # Victim/Witness model
-│   └── location.py        # Crime location model
-│
-└── database/
-    └── connection.py      # SQLAlchemy setup
-```
-
-## Dependencies
-
-- SQLAlchemy: Database ORM
-- Tabulate: Pretty table formatting
-- Colorama: Terminal colors
-- Rich: Enhanced terminal output
-- PyFiglet: ASCII art headers
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch
+2. Create a feature branch
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Brian Terer
+
+## Acknowledgments
+
+- Rich library for beautiful CLI interfaces
+- SQLAlchemy for ORM functionality
+- Python community for excellent documentation and support
